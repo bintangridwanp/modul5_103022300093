@@ -1,3 +1,35 @@
+
+﻿class SimpleDataBase<T>
+{
+    private List<T> storedData;
+    private List<DateTime> inputDates;
+
+    public SimpleDataBase()
+    {
+        storedData = new List<T>();
+        inputDates = new List<DateTime>();
+    }
+
+    public void AddNewData(T data)
+    {
+        storedData.Add(data);
+        inputDates.Add(DateTime.Now);
+    }
+
+    public void PrintAllData()
+    {
+        for (int i = 0; i < storedData.Count; i++)
+        {
+            Console.WriteLine("Data " + (i + 1) + " Berisi " + storedData[i] + " Yang disimpan pada waktu UTC " + inputDates[i]);
+        }
+    }
+
+}
+
+
+
+
+
 ﻿internal class Program
 {
     class PemrosesData
@@ -28,17 +60,15 @@
         {
             PemrosesData pemrosesData = new PemrosesData();
 
-            Console.WriteLine("Masukkan nilai 1: ");
             double nilai1 = 10;
-            Console.WriteLine("Masukkan nilai 2: ");
             double nilai2 = 30;
-            Console.WriteLine("Masukkan nilai 3: ");
             double nilai3 = 22;
             Console.WriteLine("Nilai terbesar adalah: " + pemrosesData.DapatkanNilaiTerbesar(nilai1, nilai2, nilai3));
 
         }
     }
 }
+
 
 
 
